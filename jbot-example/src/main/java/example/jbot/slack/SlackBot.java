@@ -56,6 +56,11 @@ public class SlackBot extends Bot {
         reply(session, event, new Message("Hi, I am " + slackService.getCurrentUser().getName()));
     }
 
+    @Controller(events = EventType.MESSAGE, pattern = "!bot")
+    public void onReceiveDM(WebSocketSession session, Event event) {
+        reply(session, event, new Message("Yes? " ));
+    }
+
     /**
      * Invoked when bot receives an event of type message with text satisfying
      * the pattern {@code ([a-z ]{2})(\d+)([a-z ]{2})}. For example,
